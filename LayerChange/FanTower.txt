@@ -1,0 +1,20 @@
+{
+local stepValuePercents = 5;
+local stepHeight = 8;
+local initValue = 0;
+local stepValue = stepValuePercents * 255 / 100;
+local towerLevel = round((layer_num - raft_layers)*layer_height/stepHeight);
+local targetValue = initValue + stepValue * towerLevel;
+
+if layer_num == raft_layers
+}
+; ### Initial level
+M106 S{initValue}
+{
+elsif layer_num == raft_layers + round(stepHeight / layer_height * towerLevel)
+}
+; ### Level {towerLevel}
+M106 S{targetValue}
+{
+endif
+}
