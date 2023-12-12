@@ -5,12 +5,7 @@ local initValue = first_layer_temperature[0];
 local towerLevel = round((layer_num - raft_layers)*layer_height/stepHeight);
 local targetValue = initValue + stepValue * towerLevel;
 
-if layer_num == raft_layers
-}
-; ### Initial level
-M109 S{initValue}
-{
-elsif layer_num == raft_layers + round(stepHeight / layer_height * towerLevel)
+if layer_num == raft_layers + round(stepHeight / layer_height * towerLevel)
 }
 ; ### Level {towerLevel}
 G10

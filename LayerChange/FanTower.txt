@@ -9,16 +9,10 @@ if targetValue > 255 then
    targetValue = 255;
 endif
 
-if layer_num == raft_layers
-}
-; ### Initial level
-M106 S{initValue}
-{
-elsif layer_num == raft_layers + round(stepHeight / layer_height * towerLevel)
+if layer_num == raft_layers + round(stepHeight / layer_height * towerLevel)
 }
 ; ### Level {towerLevel}
 M106 S{targetValue}
 {
 endif
 }
-
