@@ -1,0 +1,23 @@
+{
+local stepHeight = 5;
+local lengthStepsPerPeriod = 13;
+
+local lengthInit = 0.8;
+local lengthStep = 0.05;
+local speedInit = 5;
+local speedStep = 5;
+
+local towerLevelGlobal = round((layer_num - raft_layers) * layer_height / stepHeight);
+local towerLevelSpeed = int(towerLevelGlobal / lengthStepsPerPeriod);
+local towerLevelLength = towerLevelGlobal - lengthStepsPerPeriod * towerLevelSpeed;
+
+local lengthTargetValue = lengthInit - lengthStep * towerLevelLength;
+local speedTargetValue = speedInit + speedStep * towerLevelSpeed;
+
+if layer_num == raft_layers + round(stepHeight / layer_height * towerLevelGlobal)
+}
+; ### Level {towerLevelGlobal} - LengthLevel {towerLevelLength}, SpeedLevel {towerLevelSpeed}
+M207 S{lengthTargetValue} F{speedTargetValue*60}
+{
+endif
+}
