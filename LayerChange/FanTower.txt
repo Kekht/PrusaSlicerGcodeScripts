@@ -2,9 +2,8 @@
 local stepValuePercents = 10;
 local stepHeight = 10;
 local initValue = min_fan_speed[0] * 255 / 100 + 0.5;
-local stepValue = stepValuePercents * 255 / 100 + 0.5;
 local towerLevel = round((layer_num - raft_layers)*layer_height/stepHeight);
-local targetValue = initValue + stepValue * towerLevel;
+local targetValue = initValue + towerLevel * stepValuePercents * 255 / 100 + 0.5;
 if targetValue > 255 then
    targetValue = 255;
 endif
